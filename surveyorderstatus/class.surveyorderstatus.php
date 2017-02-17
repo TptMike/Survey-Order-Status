@@ -10,6 +10,11 @@ function survstat_install()
     // Do nothing
 }
 
+function survstat_uninstall()
+{
+    // Do nothing
+}
+
 function survstat_decativation()
 {
     //Do nothing

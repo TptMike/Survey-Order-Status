@@ -38,3 +38,6 @@ register_deactivation_hook(SURVSTAT__PLUGIN_DIR, survstat_decativation);
 
 // TODO: Required files
 require_once( SURVSTAT__PLUGIN_DIR . 'class.surveyorderstatus.php' );
+
+// TODO: Uninstall Hook
+register_uninstall_hook(SURVSTAT__PLUGIN_DIR, survstat_uninstall);
