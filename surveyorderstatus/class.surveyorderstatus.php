@@ -6,9 +6,6 @@
  * and open the template in the editor.
  */
 // We need access to the database via dbDelta()
-$path = admin_url();
-require_once($path . '/includes/upgrade.php');
-
 function survstat_install()
 {
     // call database global var
@@ -23,15 +20,15 @@ function survstat_install()
             status text NOT NULL,
             PRIMARY KEY (workorderid)
             ) $charset_collate;";
-            
-     
-       
+    
+    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+    dbDelta( $sql );  
 }
 
 function survstat_uninstall()
 {
     // Do nothing
-    
+    // move this to uninstall.php
     
 }
 
