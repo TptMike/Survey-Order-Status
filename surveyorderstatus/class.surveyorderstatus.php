@@ -5,14 +5,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+// We need access to the database via dbDelta()
+$path = admin_url();
+require_once($path . '/includes/upgrade.php');
+
 function survstat_install()
 {
-    // Do nothing
+    // call database global var
+    global $wpdb;
+    
+    // TODO: Table Creation
+    $table_name = $wpdb->prefix . "orderstatussurvey";
+    $charset_collate = $wpdb->get_charset_collate();
+    
+    $sql = "CREATE TABLE $table_name (
+            workorderid int(12) NOT NULL,
+            status text NOT NULL,
+            PRIMARY KEY (workorderid)
+            ) $charset_collate;";
+            
+     
+       
 }
 
 function survstat_uninstall()
 {
     // Do nothing
+    
+    
 }
 
 function survstat_decativation()
