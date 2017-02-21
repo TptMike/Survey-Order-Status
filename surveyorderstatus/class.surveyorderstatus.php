@@ -27,8 +27,14 @@ function survstat_install()
 
 function survstat_uninstall()
 {
-    // Do nothing
-    // move this to uninstall.php
+    global $wpdb;
+    
+    // TODO: Table Drop
+    $table_name = $wpdb->prefix . "orderstatussurvey";
+    
+    $sql = "DROP TABLE IF EXISTS $table_name;";
+    dbDelta( $sql );
+    
     
 }
 
