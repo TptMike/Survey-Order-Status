@@ -8,9 +8,11 @@
 
 class CSV_Parser {
 
-protected $delimiter = ",";
+    protected $enclosure = '"';
 
-protected $imported_data;
+    protected $delimiter = ",";
+
+    protected $imported_data;
 
 public function load_data ( $data )
 {
@@ -23,14 +25,17 @@ public function load_data ( $data )
 
 public function parse_csv( $delimiter )
 {
-    $data = &$this->imported_data;
+
+    $csvData = file_get_contents($fileName);
+    $lines = explode(PHP_EOL, $csvData);
+    $array = array();
     
-    $rows = array(); // completed rows
-    $row = array(); // current working row
-    $column = 0; // current working column index
-    $cell_contents = ''; // contents of the current working cell
+    foreach ($lines as $lines)
+    {
+        $array[] = str_getcsv($line);
+    }
     
-    // TODO: actually parse this >_>
+    // TODO: Insert to database.
     
 }
 

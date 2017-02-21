@@ -34,8 +34,6 @@ function survstat_uninstall()
     
     $sql = "DROP TABLE IF EXISTS $table_name;";
     dbDelta( $sql );
-    
-    
 }
 
 function survstat_decativation()
